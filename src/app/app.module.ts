@@ -21,6 +21,7 @@ import { StudentRegComponent } from './components/school.admin/student.reg/stude
 import { WelcomeComponent } from './components/school.admin/welcome/welcome';
 import { MarkAttendenceComponent } from './components/school.admin/mark.attendence/mark.attendence';
 import { ViewAttendenceComponent } from './components/school.admin/view.attendence/view.attendence';
+import { PortalAdminComponent } from './components/portal.admin/portal.admin';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ViewAttendenceComponent } from './components/school.admin/view.attenden
     StudentRegComponent,
     WelcomeComponent,
     MarkAttendenceComponent,
-    ViewAttendenceComponent
+    ViewAttendenceComponent,
+    PortalAdminComponent
   ],
   imports: [
  
