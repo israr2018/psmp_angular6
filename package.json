@@ -8,15 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build  --aot --prod"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "~0.7.0",
     "@angular/animations": "^6.1.0",
+    "@angular/cli": "~6.1.3",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
-    "@angular-devkit/build-angular": "~0.7.0",
-    "@angular/cli": "~6.1.3",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
@@ -28,7 +28,9 @@
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "path": "^0.12.7",
     "rxjs": "^6.0.0",
+    "typescript": "~2.7.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
