@@ -1,0 +1,56 @@
+
+<div class="container">
+
+        <h2 class="page-title">Login Please..</h2>
+        <hr>
+        
+        <div *ngIf="errMessage">
+            {{errMessage}}
+        </div>
+
+        <form #form="ngForm">
+        
+            
+               <div class="form-group">
+                   <label for="user_name">User Name</label>
+                   <input id="user_name" class="form-control" type="text" required placeholder="user name" #user_name="ngModel" [(ngModel)]="entity.user_name" name="user_name" >
+                   <small class="form-text text-muted" *ngIf="user_name.invalid && user_name.touched">Please type user name</small>
+                    
+               </div>
+              
+               <div class="form-group">
+                   <label for="password">Password</label>
+                   <input id="password" class="form-control" type="password" placeholder="password" required #password="ngModel"  [(ngModel)]="entity.user_password" name="password">
+                   <small class="form-text text-muted" *ngIf="password.invalid && password.touched">Please type password</small>
+               </div>
+               <div class="form-group">
+               
+       
+            
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                                <button  type="button" class="btn btn-secondary form-control"   [disabled]="form.invalid"  (click)="submit()">
+                                    Submit
+                                </button>
+                        </div>
+                        <div class="col-md-4">
+                                <button class="btn btn-secondary form-control" type="button"  (click)="gotoHome()">
+                               Cancel
+                                </button>
+                        </div>
+
+                    </div>
+                               
+                </div>
+                
+    
+        </form>
+        {{ entity | json }}
+   
+        
+   
+</div>
+
+

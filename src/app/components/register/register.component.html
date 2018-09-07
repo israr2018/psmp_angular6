@@ -1,0 +1,56 @@
+
+<div class="container">
+
+        <h2 class="page-title">Register Your School</h2>
+        <hr>
+        
+
+
+        <form #form="ngForm">
+        
+            <div class="form-group">
+                    <label for="school_name">School Name</label>
+                    <input id="school_name" class="form-control" #school_name="ngModel"  type="text" placeholder="School name" [(ngModel)]="entity.school_name" name="school_name">
+                </div>
+               <div class="form-group">
+                   <label for="admin_name">User Name</label>
+                   <input id="admin_name" class="form-control" type="text" placeholder="user name" #user_name="ngModel" [(ngModel)]="entity.user_name" name="user_name">
+                   <small class="form-text text-muted">Content</small>
+                    
+               </div>
+               <div class="form-group">
+                   <label for="admin_email">User Email</label>
+                   <input id="admin_email" class="form-control" #user_email="ngModel" type="text" placeholder="user email" [(ngModel)]="entity.user_email" name="user_email">
+               </div>
+               <div class="form-group">
+                <label for="user_mobile">User Mobile</label>
+                <input id="user_mobile" class="form-control" #user_email="ngModel" type="text" placeholder="user mobile" [(ngModel)]="entity.user_mobile" name="user_mobile">
+            </div>
+               <div class="form-group">
+                   <label for="password">Passworld</label>
+                   <input id="password" class="form-control" type="password" placeholder="user_password" #password="ngModel" [(ngModel)]="entity.user_password" name="password">                  
+               </div>
+            <div class="form-group">
+               <div class="row">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-secondary disabled form-control" (click)="register()">Submit</button>
+                    
+                    
+
+                </div>
+                <div class="col-md-4">
+                        <button type="button" class="btn btn-secondary form-control" (click)="gotoHome()">Cancel</button>
+                </div>
+
+               </div>
+               
+            </div>
+            {{ entity | json }}
+        </form>
+
+   
+        
+   
+</div>
+
+

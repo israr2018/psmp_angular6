@@ -1,0 +1,106 @@
+<div *ngIf="isDataLoaded==true">
+
+<div *ngIf="showStudentReg">
+{{ entity | json }}
+<h5 class="text-muted">Student Registration for class:{{class_level}}</h5>
+<form #form="ngForm">
+
+   
+    
+
+<div class="form-group">
+    <label for="student_name">Student Name</label>
+    <input id="student_name" name="student" #student_name="ngModel" [(ngModel)]="entity.student_name" class="form-control" type="text">
+</div>
+<div class="form-group">
+    <label for="father_name">Father Name</label>
+    <input id="father_name" name="father_name" #father_name="ngModel" [(ngModel)]="entity.father_name" class="form-control" type="text">
+</div>
+<div class="form-group">
+    <label for="gardian_name">Gardian Name</label>
+    <input id="gardian_name" name="gardian_name" #gardian_name="ngModel" [(ngModel)]="entity.gardian_name" class="form-control" type="text">
+</div>
+
+
+<div class="form-group">
+        <label for="stuent_moible">Student Mobile</label>
+        <input id="student_moible" name="student_mobile" #gardian_mobile="ngModel" [(ngModel)]="entity.student_mobile" class="form-control" type="text">
+    </div>
+
+<div class="form-group">
+    <label for="gardian_moible">Gardian mobile</label>
+    <input id="gardian_moible" name="gardian_mobile" #gardian_mobile="ngModel" [(ngModel)]="entity.gardian_mobile" class="form-control" type="text">
+</div>
+<div class="form-group">
+        <label for="gardian_moible">Father mobile</label>
+        <input id="father_moible" name="father_mobile" #father_mobile="ngModel" [(ngModel)]="entity.father_mobile" class="form-control" type="text">
+    </div>
+<div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <input id="dob" name="dob" #dob="ngModel" [(ngModel)]="entity.dob"  [(ngModel)]="entity.dob" class="form-control" type="date">
+    
+</div>
+
+<div class="form-group">
+    <label for="post_address">Postal Address</label>
+    <input id="post_address" name="post_address" #post_address="ngModel" [(ngModel)]="entity.post_address" class="form-control" type="text">
+</div>
+<div class="row form-group">
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary|secondary|success|danger|warning|info|light|dark" (click)="addStudent()">
+            Save
+        </button>
+       
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary|secondary|success|danger|warning|info|light|dark" (click)="toggleAddNewStudent()">
+            Cancel
+        </button>
+    </div>
+   
+   
+    
+</div>
+
+</form>
+
+</div>
+
+
+
+
+
+<div *ngIf="!showStudentReg">
+    
+    <div class="form-group">
+      <button class="btn btn-default pull-right" (click)="toggleAddNewStudent()">Add New Student</button>
+    </div>
+    <h5>Student enrol in this class:{{class_level}}</h5>
+    <table class="table table-stripped">
+      <tr>
+        
+       
+        <th>Student Name</th>
+        <th>Father Name</th>
+        <th>Date of Birth</th>
+        <th>View Detail</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+       
+  
+      </tr>
+      <tr *ngFor="let student of studentList">
+  
+        <td>{{student.student_name}}</td>
+        <td>{{student.father_name}}</td>
+        <td>{{student.dob|date:'dd/MM/yyyy'}}</td>
+      </tr>
+  
+    </table>
+    {{ availableClasse | json }}
+  
+  </div>
+
+
+</div>

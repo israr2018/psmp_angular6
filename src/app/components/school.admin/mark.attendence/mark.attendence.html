@@ -1,0 +1,35 @@
+
+<h4 class="text-muted">Today Date: {{todayDate | date:'dd/MM/yyyy'}}</h4>
+
+<table class="table table-stripped">
+    <tr>
+      
+     
+      <th>Student Name</th>
+      <th>Father Name</th>
+      <th>DOB</th>
+      <th>Status</th>
+      
+      <th>Notes</th>
+
+     
+
+    </tr>
+    <tr *ngFor="let student of studentList">
+
+      <td>{{student.student_name}}</td>
+      <td>{{student.father_name}}</td>
+      <td>{{student.dob}}</td>
+      <td>
+        <input type="radio" [value]=""  name="{{student._id}}"  (click)="markAttendence('P',student)"> Present
+        <input type="radio" [value]=""  name="{{student._id}}"  (click)="markAttendence('A',student)"> Absent
+        <input type="radio" [value]=""  name="{{student._id}}"  (click)="markAttendence('L',student)"> Leave
+
+      </td>
+     
+    </tr>
+
+  </table>
+<button class="btn btn-primary pull-right" (click)="saveAttendence()">Save Attendence</button>
+
+ 

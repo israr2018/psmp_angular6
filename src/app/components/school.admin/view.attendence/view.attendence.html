@@ -1,0 +1,32 @@
+<div *ngIf="isDataAvailable==true">
+  <h4>View Attendence for class:KG</h4>
+    
+  <p>Today Date:{{todayDate}}</p>
+
+  <p>Select Date:<input id="selectDate" class="form-control" #selectDate type="date" (change)="getAttendenceByDate2(selectDate)"></p>
+        
+        
+        
+  
+<table class="table table-stripped">
+    <tr>
+      <th>Student Name</th>
+      <th>Father Name</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let student of studentList">
+
+      <td>{{student.student_name}}</td>
+      <td>{{student.father_name}}</td> 
+      <td>{{map.get(student._id)==null?"No Attendence":map.get(student._id).status}}</td> 
+          
+     
+      
+     
+    </tr>
+   
+  </table>
+ 
+  {{ map | json }}
+</div>
