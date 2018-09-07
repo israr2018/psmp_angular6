@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-name',
-    templateUrl: './portal.admin.html',
-    styleUrls: ['./name.component.scss']
+    
+    templateUrl:'./portal.admin.html'
+    
 })
 export class PortalAdminComponent implements OnInit {
     constructor() { }
