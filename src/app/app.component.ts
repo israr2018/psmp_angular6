@@ -11,6 +11,6 @@ export class AppComponent {
   
   constructor() {
     console.log(environment.name);
-    
+    console.log(environment.baseUrl);
   }
 }
