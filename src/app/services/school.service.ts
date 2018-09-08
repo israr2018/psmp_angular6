@@ -9,66 +9,69 @@ import { LoginEntity } from './../entities/login.entity';
 import { HttpResponse } from '@angular/common/http';
 import { Class } from './../entities/class.entity';
 import { StudentReg } from './../entities/student.reg.entity';
+
+import { environment } from './../../environments/environment.staging';
+
 @Injectable()
 export class SchoolService{
-
+   baseUrl:String
 constructor(private http:HttpClient) {
-  
+  this.baseUrl=environment.baseUrl;
 }
 getSchoolById(school_id: string): Observable<ISchoolEntity> {
-  return this.http.get<ISchoolEntity>("http://localhost:8000/api/schools/"+school_id).pipe(
+  return this.http.get<ISchoolEntity>(this.baseUrl+"/schools/"+school_id).pipe(
     catchError(this.handleError)
   );
 }
 getAllSchools (): Observable<ISchoolEntity[]> {
-  return this.http.get<ISchoolEntity[]>("http://localhost:8000/api/schools").pipe(
+  return this.http.get<ISchoolEntity[]>(this.baseUrl+"/schools").pipe(
     catchError(this.handleError)
   );
 }
 /** POST: add a new hero to the server */
 addSchool (entity: SchoolEntity): Observable<school_entity> {
-   return this.http.post<ISchoolEntity>("http://localhost:8000/api/schools", entity).pipe(
+   return this.http.post<ISchoolEntity>(this.baseUrl+"/schools", entity).pipe(
    catchError(this.handleError)
    ); 
 }
 login(entity:LoginEntity){
-  return this.http.post<HttpResponse<any>>("http://localhost:8000/api/schools/login", entity,{ observe: 'response' }).pipe(
+  return this.http.post<HttpResponse<any>>(this.baseUrl+"/schools/login", entity,{ observe: 'response' }).pipe(
     catchError(this.handleError)
     ); 
 }
 addAClass(entity:Class){
-  return this.http.post<HttpResponse<Class>>("http://localhost:8000/api/Classes", entity,{observe:'response'}).pipe(
+  return this.http.post<HttpResponse<Class>>(this.baseUrl+"/Classes", entity,{observe:'response'}).pipe(
     catchError(this.handleError)
     ); 
 }
 getClassesBySchool(school_id:string){
-  return this.http.get<HttpResponse<Class>>("http://localhost:8000/api/Classes/"+school_id,{observe:'response'}).pipe(
+  return this.http.get<HttpResponse<Class>>(this.baseUrl+"/Classes/"+school_id,{observe:'response'}).pipe(
     catchError(this.handleError)
     ); 
 }
 getStudents(school_id:string,class_id:string){
-  return this.http.get<HttpResponse<StudentReg>>("http://localhost:8000/api/students/"+school_id+"/"+class_id,{observe:'response'}).pipe(
+  return this.http.get<HttpResponse<StudentReg>>(this.baseUrl+"/students/"+school_id+"/"+class_id,{observe:'response'}).pipe(
     catchError(this.handleError)
     ); 
 }
 addStudent(entity:StudentReg){
-  return this.http.post<HttpResponse<StudentReg>>("http://localhost:8000/api/students/",entity,{observe:'response'}).pipe(
+  return this.http.post<HttpResponse<StudentReg>>(this.baseUrl+"/students/",entity,{observe:'response'}).pipe(
     catchError(this.handleError)
     ); 
 }
 updateStudent(id:string,student:StudentReg){
   
-  return this.http.put<HttpResponse<StudentReg>>("http://localhost:8000/api/students/"+id,student,{observe:'response'}).pipe(
+  return this.http.put<HttpResponse<StudentReg>>(this.baseUrl+"/students/"+id,student,{observe:'response'}).pipe(
     catchError(this.handleError)
     ); 
 }
 markAttendence(attendence:any){
-  return this.http.post<HttpResponse<any>>("http://localhost:8000/api/attendence/mark_attendence",attendence,{observe:'response'}).pipe(
+  return this.http.post<HttpResponse<any>>(this.baseUrl+"/attendence/mark_attendence",attendence,{observe:'response'}).pipe(
     catchError(this.handleError)
     );
 }
 getAttendenceByDate(date:string){
-  return this.http.get<HttpResponse<any>>("http://localhost:8000/api/attendence/"+date,{observe:'response'}).pipe(
+  return this.http.get<HttpResponse<any>>(this.baseUrl+"/attendence/"+date,{observe:'response'}).pipe(
     catchError(this.handleError)
     );
 }
