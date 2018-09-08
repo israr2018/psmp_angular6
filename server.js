@@ -8,9 +8,9 @@ const app = express();
 app.use(express.static('./dist/psms'));
 
 app.get('/*', function(req,res) {
-   // console.log("_dirname",__dirname);
-    res.sendFile(path.join(__dirname,'/dist/psms/index.html'));
-//res.send("Hello World");
+    console.log("_dirname",__dirname);
+    //res.sendFile(path.join(__dirname,'/dist/psms/index.html'));
+   res.send("Hello World");
 });
 
 // Start the app by listening on the default Heroku port
