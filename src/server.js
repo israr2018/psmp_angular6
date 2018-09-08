@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('/dist/psms'));
 
 app.get('/*', function(req,res) {
-    console.log("_dirname",__dirname);
+   // console.log("_dirname",__dirname);
 res.sendFile(path.join(__dirname,'/dist/psms/index.html'));
 });
 
