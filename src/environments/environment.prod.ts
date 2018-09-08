@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  name:"production",
+  baseUrl:"https://psmpapi.herokuapp.com/api"
 };
