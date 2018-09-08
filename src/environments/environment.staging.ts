@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   name:"staging",
-  baseUrl:""
+  baseUrl:"test"
 };
 
 /*
