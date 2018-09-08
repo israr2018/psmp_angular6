@@ -13,6 +13,6 @@ res.sendFile(path.join(__dirname,'../dist/psms/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 4200,function(req,res){
-console.log("server .js is running on port 4200");
+app.listen(process.env.PORT || 8080,function(req,res){
+//console.log("server .js is running on port 4200");
 });
