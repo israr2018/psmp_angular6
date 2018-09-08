@@ -8,8 +8,8 @@ const app = express();
 app.use(express.static('./dist/psmp'));
 
 app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname,'/dist/psmp/index.html'));
+    res.send("Hello angular app");
+//res.sendFile(path.join(__dirname,'/dist/psmp/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
