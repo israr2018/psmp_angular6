@@ -10,12 +10,13 @@ import { HttpResponse } from '@angular/common/http';
 import { Class } from './../entities/class.entity';
 import { StudentReg } from './../entities/student.reg.entity';
 
-import { environment } from './../../environments/environment.staging';
+import { environment } from './../../environments/environment';
 
 @Injectable()
 export class SchoolService{
    baseUrl:String
 constructor(private http:HttpClient) {
+  
   this.baseUrl=environment.baseUrl;
 }
 getSchoolById(school_id: string): Observable<ISchoolEntity> {
@@ -35,7 +36,7 @@ addSchool (entity: SchoolEntity): Observable<school_entity> {
    ); 
 }
 login(entity:LoginEntity){
-  return this.http.post<HttpResponse<any>>("https://psmpapi.herokuapp.com/api"+"/schools/login", entity,{ observe: 'response' }).pipe(
+  return this.http.post<HttpResponse<any>>(this.baseUrl+"/schools/login", entity,{ observe: 'response' }).pipe(
     catchError(this.handleError)
     ); 
 }
