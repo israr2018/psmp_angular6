@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
                 }   
             
             },err=>{
-            console.log("error in school login"+JSON.stringify(err));
-            this.errMessage=err.message;
+             console.log("error in school login"+JSON.stringify(err));
+             this.errMessage=err.message;
             });
     }
     gotoHome():void{
