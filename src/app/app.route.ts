@@ -17,7 +17,7 @@ export const ROUTE: Routes = [
     
     { path: "home", component: HomeComponent },
     { path: "", component: HomeComponent },
-    { path: "auto_paper_gen", component: AutoPaperGenComponent },
+    // { path: "auto_paper_gen", component: AutoPaperGenComponent },
    
     { path: "register", component: RegisterComponent },
     { path: "login", component: LoginComponent },

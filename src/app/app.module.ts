@@ -24,9 +24,10 @@ import { ViewAttendenceComponent } from './components/school.admin/view.attenden
 import { PortalAdminComponent } from './components/portal.admin/portal.admin';
 import { LoginService } from './services/login.service';
 import { AGSchoolAdmin } from './ag_school_admin';
-import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
-import { PdfViewerComponent } from 'ng2-pdf-viewer';
+// import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+// import { PdfViewerComponent } from 'ng2-pdf-viewer';
 import { AutoPaperService } from './services/autopaper.gen.service';
+import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +45,8 @@ import { AutoPaperService } from './services/autopaper.gen.service';
     MarkAttendenceComponent,
     ViewAttendenceComponent,
     PortalAdminComponent,
-    AutoPaperGenComponent,
-    PdfViewerComponent
+    AutoPaperGenComponent
+    // PdfViewerComponent
     
   ],
   imports: [
