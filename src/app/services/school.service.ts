@@ -9,15 +9,20 @@ import { LoginEntity } from './../entities/login.entity';
 import { HttpResponse } from '@angular/common/http';
 import { Class } from './../entities/class.entity';
 import { StudentReg } from './../entities/student.reg.entity';
-
 import { environment } from './../../environments/environment';
 
 @Injectable()
 export class SchoolService{
+  
    baseUrl:String
 constructor(private http:HttpClient) {
   
   this.baseUrl=environment.baseUrl;
+}
+classAttendenceRecorded(school_id: string, class_level: string) {
+  return this.http.get<Class>(this.baseUrl+"/classes/"+school_id+"/"+class_level).pipe(
+    catchError(this.handleError)
+  );
 }
 getSchoolById(school_id: string): Observable<ISchoolEntity> {
   return this.http.get<ISchoolEntity>(this.baseUrl+"/schools/"+school_id).pipe(
@@ -29,16 +34,16 @@ getAllSchools (): Observable<ISchoolEntity[]> {
     catchError(this.handleError)
   );
 }
-/** POST: add a new hero to the server */
-addSchool (entity: SchoolEntity): Observable<school_entity> {
+
+addSchool (entity: SchoolEntity) {
    return this.http.post<ISchoolEntity>(this.baseUrl+"/schools", entity).pipe(
    catchError(this.handleError)
    ); 
 }
 login(entity:LoginEntity){
   return this.http.post<HttpResponse<any>>(this.baseUrl+"/schools/login", entity,{ observe: 'response' }).pipe(
-    catchError(this.handleError)
-    ); 
+   
+  );
 }
 addAClass(entity:Class){
   return this.http.post<HttpResponse<Class>>(this.baseUrl+"/Classes", entity,{observe:'response'}).pipe(
@@ -86,7 +91,7 @@ private handleError(error: HttpErrorResponse) {
       // The response body may contain clues as to what went wrong,
         console.error(
         `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+        `body was: ${error.message}`);
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');

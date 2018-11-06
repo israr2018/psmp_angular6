@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentReg } from '../../../entities/student.reg.entity';
 import { SchoolService } from './../../../services/school.service';
+import { ActivatedRoute } from '@angular/router';
+import { SchoolAdminComponent } from './../school.admin';
 
 @Component({
    
@@ -9,30 +11,39 @@ import { SchoolService } from './../../../services/school.service';
 })
 export class ViewAttendenceComponent implements OnInit {
     studentList:any[]=[];
+    class_level:string;
+    school_id:string;
+    isDateLoaded:boolean=false;
     todayDate:string;
+    currentDate:string;
     month:number;
     day:any=30;
     index:number=0;
     isDataAvailable:boolean=false;
     flagShowAttendence:number=-1;
     map=new Map();
-    constructor(private _schoolService:SchoolService) { }
+    constructor(private _schoolService:SchoolService,private route:ActivatedRoute,private _schoolAdminComp:SchoolAdminComponent) { }
 
     ngOnInit(): void {
-            this.getAllStudentsByClass();
+
+        this.route.paramMap.subscribe(params=>{
+            this.class_level=<string>params.get('class_level');
+            console.log("class level",this.class_level);
+          
             this.todayDate=new Date().toISOString().split('T')[0]; 
+            this.currentDate=this.todayDate;
             this.month=+this.todayDate.split('-')[1]-1
             this.day=+this.todayDate.split('-')[2];
-
-            console.log(this.todayDate);
-            console.log(this.month);
-            console.log(this.day);
-            this.getAttendenceByDate(this.todayDate);
             this.isDataAvailable=true;
-            
+            this.school_id=this._schoolAdminComp.school_id;
+            this.getAllStudentsByClass();
+            this.getAttendenceByDate(this.currentDate);
+          });   
+          
      }
      getAllStudentsByClass():void{
-        this._schoolService.getStudents("5b7d30a966cec178ff5a0c20","5b827e4f1102bc0b64067ba6").subscribe(result=>{
+        
+        this._schoolService.getStudents(this._schoolAdminComp.school_id,this.class_level).subscribe(result=>{
             this.studentList=<any>result.body;
            
            this.isDataAvailable=true;
@@ -51,10 +62,6 @@ export class ViewAttendenceComponent implements OnInit {
         },error=>{
 
         });
-       
-       // this.map.set("5b8819555f427b11f4f9f8d7",{"date":"2018-09-03","status":"P","student_id":""});
-       // this.map.set("5b8819895f427b11f4f9f8d8",{"date":"2018-09-03","status":"P","student_id":""});
-       // console.log(this.map.get("")==undefined);
        
     }
   
@@ -75,4 +82,4 @@ export class ViewAttendenceComponent implements OnInit {
         
      }
     
-}
+    }

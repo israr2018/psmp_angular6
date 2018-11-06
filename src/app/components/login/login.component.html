@@ -5,7 +5,10 @@
         <hr>
         
         <div *ngIf="errMessage">
-            {{errMessage}}
+           <div class="alert alert-warning">
+                {{errMessage}}
+           </div>            
+           
         </div>
 
         <form #form="ngForm">
@@ -47,7 +50,7 @@
                 
     
         </form>
-        {{ entity | json }}
+        
    
         
    

@@ -10,7 +10,7 @@
                 
                     <div id="accordion">
                         
-                                <div class="card">
+                            <div class="card">
                                 
                                     <div class="card-header" id="headingOne">
                                       <h5 class="mb-0">
@@ -44,14 +44,14 @@
                             <div class="card">
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" (click)="toggleMarkAttendence()">
+                                    <button class="btn btn-link"  (click)="toggleMarkAttendence()">
                                         Mark Today Attendence
                                       </button>
                                 </h5>
                               </div>
                               
                                 <div class="card-body" *ngIf="showMarkAttendence==true">
-                                    <a class="btn btn-link" [routerLink]="['./mark_attendence',class.class_level]" *ngFor="let class of regClasses" >{{class.class_level}}</a>
+                                    <button class="btn btn-link" [disabled]="class.today_date=='undefined'?false:class.today_date==todayDate"               [routerLink]="['./mark_attendence',class.class_level]" *ngFor="let class of regClasses" >{{class.class_level}}</button>
                                     
                                 </div>
                               

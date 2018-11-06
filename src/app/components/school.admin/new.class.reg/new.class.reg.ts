@@ -14,8 +14,7 @@ export class NewClassRegComponent implements OnInit {
     constructor(private _schoolService:SchoolService,private _schoolAdminComp:SchoolAdminComponent) { }
     showAddNewClass:boolean=false;
     entity:Class=new Class();
-    school_id:string="5b7d30a966cec178ff5a0c20";
-    availableClasses:string[]=["KG","I","II","III","IV","V","VI","VII","VIII","IX","X"];
+    availableClasses:string[]=["KG","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
     regClasses:any[]=[];
     tempList:string[]=[];
    
@@ -48,7 +47,7 @@ export class NewClassRegComponent implements OnInit {
             if(result.status==201){
                 this.showAddNewClass=false;
                 this.regClasses.push(this.entity);
-                this.filterClasses();
+              //  this.filterClasses();
                 console.log("class is added successfully.");
             }
             if(result.status==500){

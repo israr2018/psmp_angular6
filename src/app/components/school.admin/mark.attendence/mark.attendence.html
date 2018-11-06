@@ -1,5 +1,28 @@
 
-<h4 class="text-muted">Today Date: {{todayDate | date:'dd/MM/yyyy'}}</h4>
+<div  *ngIf="isAttendenceSaved">
+
+  This attendence is recorded  successfully.
+
+</div>
+
+<div *ngIf="!isAttendenceSaved">
+
+
+<div style="text-align:left">
+  
+     Mark Today Attendence for Class : {{class_level}} 
+  
+  
+
+</div>
+<div style="">
+  
+    Today Date: {{todayDate | date:'dd/MM/yyyy'}}
+
+
+</div>
+
+
 
 <table class="table table-stripped">
     <tr>
@@ -10,7 +33,7 @@
       <th>DOB</th>
       <th>Status</th>
       
-      <th>Notes</th>
+      
 
      
 
@@ -19,7 +42,7 @@
 
       <td>{{student.student_name}}</td>
       <td>{{student.father_name}}</td>
-      <td>{{student.dob}}</td>
+      <td>{{student.dob|date:'dd/MM/yyyy'}}</td>
       <td>
         <input type="radio" [value]=""  name="{{student._id}}"  (click)="markAttendence('P',student)"> Present
         <input type="radio" [value]=""  name="{{student._id}}"  (click)="markAttendence('A',student)"> Absent
@@ -30,6 +53,18 @@
     </tr>
 
   </table>
-<button class="btn btn-primary pull-right" (click)="saveAttendence()">Save Attendence</button>
+
+<div class="row">
+  <div class="col-md-4">
+    <button class="btn btn-primary form-control" [disabled]="map.size!=studentList.length" (click)="saveAttendence()">Save Attendence</button>
+  </div>
+  <div class="col-md-4 ">
+    <button class="btn btn-primary form-control" (click)="gotoHome()">Cancel</button>
+  </div>
+</div>
+
+
+</div>
+
 
  

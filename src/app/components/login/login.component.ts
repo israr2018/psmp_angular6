@@ -18,22 +18,38 @@ export class LoginComponent implements OnInit {
     errMessage:any;
     ngOnInit(): void { }
     submit():void{
-        console.log(".........submit..........");
-        this._schoolService.login(this.entity).subscribe(res=>{
-           // console.log(res.body.school_name);
-        
-            switch(res.status){
+      
+        this._schoolService.login(this.entity).subscribe(result=>{
+                let serviceRes=<any>result.body;
+                
+            switch(serviceRes.status_code){
                 case 200:
-                console.log(res.status);
-                let school:any=<any> res.body;
-                 if(school.is_activated){
-                    this.router.navigate(['/school_admin',school._id]);
-                 }
-                 else{
-                     this.router.navigate(['/inactive_school']);
+                let school:any=<any> serviceRes.data;
+                
+                 switch(school.user_role){
+                    case 'school_admin':
+                    if(school.is_activated)
+                    {
+                        localStorage.setItem('token',serviceRes.token);
+                        this.router.navigate(['/school_admin']);
+                       
+                    }
+                    else
+                    {
+                        localStorage.setItem('token',serviceRes.token);
+                        this.router.navigate(['/inactive_school']);
+                        
+                    }
+                    break;
+                    case  'portal_admin':
+                    localStorage.setItem('token',serviceRes.token);
+                    this.router.navigate(['/portal_admin']);
+                    break;
+
                  }
                  break;
                  case 404:
+
                  this.errMessage="Invalid user name or password";
                  break;
                  case 500:
@@ -42,6 +58,7 @@ export class LoginComponent implements OnInit {
             }
             
         },err=>{
+            console.log("error in school login");
             this.errMessage=err;
         });
     }

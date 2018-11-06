@@ -22,7 +22,11 @@ import { WelcomeComponent } from './components/school.admin/welcome/welcome';
 import { MarkAttendenceComponent } from './components/school.admin/mark.attendence/mark.attendence';
 import { ViewAttendenceComponent } from './components/school.admin/view.attendence/view.attendence';
 import { PortalAdminComponent } from './components/portal.admin/portal.admin';
-
+import { LoginService } from './services/login.service';
+import { AGSchoolAdmin } from './ag_school_admin';
+import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+import { AutoPaperService } from './services/autopaper.gen.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,10 @@ import { PortalAdminComponent } from './components/portal.admin/portal.admin';
     WelcomeComponent,
     MarkAttendenceComponent,
     ViewAttendenceComponent,
-    PortalAdminComponent
+    PortalAdminComponent,
+    AutoPaperGenComponent,
+    PdfViewerComponent
+    
   ],
   imports: [
  
@@ -52,7 +59,7 @@ import { PortalAdminComponent } from './components/portal.admin/portal.admin';
     RouterModule.forRoot(ROUTE)
   
   ],
-  providers: [SchoolService],
+  providers: [SchoolService,LoginService,AGSchoolAdmin,AutoPaperService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
