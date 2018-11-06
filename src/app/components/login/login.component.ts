@@ -3,6 +3,7 @@ import { LoginEntity } from './../../entities/login.entity';
 import { SchoolService } from './../../services/school.service';
 import { Router } from '@angular/router';
 import { ISchoolEntity } from './../../entities/ischool.entity';
+import { jsonpCallbackContext } from '@angular/common/http/src/module';
 
 @Component({
     
@@ -21,8 +22,7 @@ export class LoginComponent implements OnInit {
       
         this._schoolService.login(this.entity).subscribe(result=>{
                 let serviceRes=<any>result.body;
-                
-            switch(serviceRes.status_code){
+                switch(serviceRes.status_code){
                 case 200:
                 let school:any=<any> serviceRes.data;
                 
@@ -55,12 +55,12 @@ export class LoginComponent implements OnInit {
                  case 500:
                  this.errMessage="Internal Server Error";
                  break;
-            }
+                }   
             
-        },err=>{
-            console.log("error in school login");
-            this.errMessage=err;
-        });
+            },err=>{
+            console.log("error in school login"+JSON.stringify(err));
+            this.errMessage=err.message;
+            });
     }
     gotoHome():void{
         this.router.navigate(['/home']);
