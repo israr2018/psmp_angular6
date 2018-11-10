@@ -1,3 +1,4 @@
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{RouterModule} from '@angular/router'
@@ -60,7 +61,7 @@ import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.ge
     RouterModule.forRoot(ROUTE)
   
   ],
-  providers: [SchoolService,LoginService,AGSchoolAdmin,AutoPaperService],
+  providers: [SchoolService,LoginService,AGSchoolAdmin,AutoPaperService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
