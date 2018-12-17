@@ -13,10 +13,13 @@ import { MarkAttendenceComponent } from './components/school.admin/mark.attenden
 import { ViewAttendenceComponent } from './components/school.admin/view.attendence/view.attendence';
 import { AGSchoolAdmin } from './ag_school_admin';
 import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+import { QuestionBankComponent } from './components/question_bank/question.bank';
 export const ROUTE: Routes = [
     
     { path: "home", component: HomeComponent },
     { path: "", component: HomeComponent },
+    // { path: "AutoPaper", component: AutoPaperGenComponent },
+    // { path: "", component: QuestionBankComponent },
     // { path: "auto_paper_gen", component: AutoPaperGenComponent },
    
     { path: "register", component: RegisterComponent },

@@ -4,6 +4,8 @@ import { SchoolService } from './../../services/school.service';
 import { Router } from '@angular/router';
 import { ISchoolEntity } from './../../entities/ischool.entity';
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
+import { Jsonp } from '@angular/http';
+import { JsonPipe } from '@angular/common';
 
 @Component({
     
@@ -22,14 +24,18 @@ export class LoginComponent implements OnInit {
       
         this._schoolService.login(this.entity).subscribe(result=>{
                 let serviceRes=<any>result.body;
+                console.log("status_code"+serviceRes.status_code);
                 switch(serviceRes.status_code){
                 case 200:
                 let school:any=<any> serviceRes.data;
-                
+                console.log("school"+JSON.stringify(school));
                  switch(school.user_role){
                     case 'school_admin':
+
+                    console.log("school admin");
                     if(school.is_activated)
                     {
+                        console.log("school is activated:"+school.is_activated);
                         localStorage.setItem('token',serviceRes.token);
                         this.router.navigate(['/school_admin']);
                        
