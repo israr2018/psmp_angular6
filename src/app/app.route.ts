@@ -12,8 +12,8 @@ import { WelcomeComponent } from './components/school.admin/welcome/welcome';
 import { MarkAttendenceComponent } from './components/school.admin/mark.attendence/mark.attendence';
 import { ViewAttendenceComponent } from './components/school.admin/view.attendence/view.attendence';
 import { AGSchoolAdmin } from './ag_school_admin';
-import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
-import { QuestionBankComponent } from './components/question_bank/question.bank';
+// import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+// import { QuestionBankComponent } from './components/question_bank/question.bank';
 export const ROUTE: Routes = [
     
     { path: "home", component: HomeComponent },

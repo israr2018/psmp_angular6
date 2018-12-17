@@ -1,0 +1,149 @@
+<div class="card ">
+  <div class="conatiner">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="my-input">Select Syllabus</label>
+          <select id="my-input" class="custom-select">
+            <option>AFAQ</option>
+            <option>Oxford</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="my-input">Select Class</label>
+          <select id="my-input" class="custom-select">
+            <option>I</option>
+            <option>II</option>
+            <option>III</option>
+            <option>IV</option>
+            <option>V</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="my-input">Select Group</label>
+          <select id="my-input" class="custom-select">
+            <option>Science</option>
+            <option>Arts</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="my-input">Select Course</label>
+          <select id="my-input" class="custom-select">
+            <option>English</option>
+            <option>Urdu</option>
+            <option>Mathes</option>
+            <option>Science</option>
+
+          </select>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="my-input">Select Chapter</label>
+          <select id="my-input" class="custom-select">
+            <option>Chapter-01</option>
+            <option>Chapter-02</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="my-input"> </label>
+        <div class="form-group">
+          <button class="btn btn-primary" type="button">Add New Chapter</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="card" *ngIf="!addNewQuestion">
+  <div class="card-body">
+    <h5 class="card-title ">Availabe Questions</h5>
+    <button class="btn btn-primary" type="button" (click)="newQuestion()">Add New Question</button>
+    
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-3">#</div>
+      <div class="col-md-5">Question</div>
+      <div class="col-md-2">Type</div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div>
+
+  <div class="card" *ngIf="addNewQuestion">
+    <div class="card-body">
+      <h5 class="card-title">Add New Question</h5>
+      <div class="row">
+        <div class="col-md-2">
+
+
+          <div class="form-group ">
+            <label for="my-input">Question Type</label>
+
+          </div>
+
+
+        </div>
+        <div class="col-md-5">
+
+
+          <select id="my-input" class="custom-select">
+            <option>MCQ</option>
+            <option>True False</option>
+            <option>Fill in Blanks</option>
+            <option>Short Question</option>
+            <option>Long Question</option>
+          </select>
+
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          Type Question:
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+
+            <textarea id="my-input" class="form-control" #new_question rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 .offset-2"></div>
+        <button type="button" class="btn btn-primary" (click)="saveQuestion(new_question.value)">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>

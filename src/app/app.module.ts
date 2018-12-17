@@ -27,9 +27,9 @@ import { LoginService } from './services/login.service';
 import { AGSchoolAdmin } from './ag_school_admin';
  
 // import { AutoPaperService } from './services/autopaper.gen.service';
-// import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
 // import { PdfViewerComponent } from 'ng2-pdf-viewer';
-// import { QuestionBankComponent } from './components/question_bank/question.bank';
+import { QuestionBankComponent } from './components/question_bank/question.bank';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,10 +46,10 @@ import { AGSchoolAdmin } from './ag_school_admin';
     WelcomeComponent,
     MarkAttendenceComponent,
     ViewAttendenceComponent,
-    PortalAdminComponent
-    // AutoPaperGenComponent,
+    PortalAdminComponent,
+    AutoPaperGenComponent,
     // PdfViewerComponent,
-    // QuestionBankComponent
+    QuestionBankComponent
     
   ],
   imports: [
