@@ -25,10 +25,11 @@ import { ViewAttendenceComponent } from './components/school.admin/view.attenden
 import { PortalAdminComponent } from './components/portal.admin/portal.admin';
 import { LoginService } from './services/login.service';
 import { AGSchoolAdmin } from './ag_school_admin';
+ 
+// import { AutoPaperService } from './services/autopaper.gen.service';
 // import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
 // import { PdfViewerComponent } from 'ng2-pdf-viewer';
-import { AutoPaperService } from './services/autopaper.gen.service';
-import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.gen';
+// import { QuestionBankComponent } from './components/question_bank/question.bank';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +46,10 @@ import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.ge
     WelcomeComponent,
     MarkAttendenceComponent,
     ViewAttendenceComponent,
-    PortalAdminComponent,
-    AutoPaperGenComponent
-    // PdfViewerComponent
+    PortalAdminComponent
+    // AutoPaperGenComponent,
+    // PdfViewerComponent,
+    // QuestionBankComponent
     
   ],
   imports: [
@@ -61,7 +63,7 @@ import { AutoPaperGenComponent } from './components/auto_paper_gen/auto.paper.ge
     RouterModule.forRoot(ROUTE)
   
   ],
-  providers: [SchoolService,LoginService,AGSchoolAdmin,AutoPaperService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [SchoolService,LoginService,AGSchoolAdmin,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

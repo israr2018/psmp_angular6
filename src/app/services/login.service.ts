@@ -15,8 +15,9 @@ isLoggedin():boolean{
     var token=this.getToken();
         if(token){
             // check if token is expired
-            var payload = JSON.parse(atob(token.split('.')[1]));
-            return payload.exp > Date.now() / 1000;
+          //  var payload = JSON.parse(atob(token.split('.')[1]));
+          //  return payload.exp > Date.now() / 1000;
+          return true;
         }
         else{
          return false;
